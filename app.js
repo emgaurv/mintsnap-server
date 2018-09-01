@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 
 //mongoose.connect('mongodb://localhost:27017/mintsnap');
 
-mongoose.connect('mongodb://hacktheheaven11:operator@php1@ds141872.mlab.com:41872/mintsnap');
+mongoose.connect('mongodb://thehydra:thehydra1@ds141872.mlab.com:41872/mintsnap');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
