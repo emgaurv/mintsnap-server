@@ -1,14 +1,29 @@
 var express = require('express');
-var Feed = require('../models/feed');
 var router = express.Router();
+var Feed = require('../models/feed');
+var multer = require('multer');
+  var realname;
+var Storage = multer.diskStorage({
+destination: function (req, file, callback) {
+callback(null, "./public/images");
+},
+filename: function (req, file, callback) {
+ realname = file.fieldname + "_" + Date.now() + "_" + file.originalname;
+callback(null, realname);
+}
+});
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('ENTRY RESTRICTED');
 });
 
+var upload = multer({ storage: Storage }).array("imgUploader", 3);
+router.post('/',upload,function(req, res, next) {
 
-router.post('/', function(req, res, next) {
+
+res.json(req.files[1].filename);
+
 var post=req.body;
 /*var topic = ;
 var context = ;

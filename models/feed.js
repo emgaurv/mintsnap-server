@@ -9,5 +9,7 @@ var userSchema = new Schema({
       country: String,
       views: String,
       date: String,
+      cover:String,
+      pdfpath:String,
   });
 module.exports = mongoose.model('feedpost', userSchema);
