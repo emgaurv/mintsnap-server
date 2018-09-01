@@ -19,13 +19,13 @@ var date = ;*/
 /*------putting data to database-------------*/
 var i =  Math.random() * (100 - 10) + 10;
 var newFeed = new Feed();
-newFeed.feed.name = "Gaurav Pandey";
-newFeed.feed.topic = req.body.topic;
-newFeed.feed.context = req.body.context;
-newFeed.feed.filepath = req.body.filepath;
-newFeed.feed.country = "INDIA";
-newFeed.feed.views = Math.round(i);
-newFeed.feed.date = req.body.date;
+newFeed.name = req.body.name;
+newFeed.topic = req.body.topic;
+newFeed.context = req.body.context;
+newFeed.filepath = req.body.filepath;
+newFeed.country = "INDIA";
+newFeed.views = Math.round(i);
+newFeed.date = req.body.date;
 newFeed.save();
 res.send(post.name);
 /*res.redirect('/dashboard');
