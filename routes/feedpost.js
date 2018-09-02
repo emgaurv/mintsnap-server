@@ -3,6 +3,8 @@ var router = express.Router();
 var Feed = require('../models/feed');
 var multer = require('multer');
   var realname;
+
+  
 var Storage = multer.diskStorage({
 destination: function (req, file, callback) {
 callback(null, "./public/images");
@@ -18,11 +20,9 @@ router.get('/', function(req, res, next) {
   res.send('ENTRY RESTRICTED');
 });
 
-var upload = multer({ storage: Storage }).array("imgUploader", 3);
+var upload = multer({ storage: Storage }).array("imgUploader", 2);
 router.post('/',upload,function(req, res, next) {
 
-
-res.json(req.files[1].filename);
 
 var post=req.body;
 /*var topic = ;
@@ -41,8 +41,9 @@ newFeed.filepath = req.body.filepath;
 newFeed.country = "INDIA";
 newFeed.views = Math.round(i);
 newFeed.date = req.body.date;
+newFeed.cover = req.files[0].filename;
+newFeed.pdfpath = req.files[1].filename;
 newFeed.save();
-res.send(post.name);
 /*res.redirect('/dashboard');
 */
 });
